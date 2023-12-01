@@ -2,7 +2,7 @@
   <div class="boodschappenlijst">
     <div v-for="item in items" :key="item.name">
       <input type="checkbox" v-model="item.checked">
-      {{ item.name }}
+      <span :class="{ 'line-through': item.checked }">{{ item.name }}</span>
     </div>
     <input type="text" v-model="newItem">
     <button @click="addItem">Voeg toe</button>
@@ -40,3 +40,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.line-through {
+  text-decoration: line-through;
+}
+</style>
